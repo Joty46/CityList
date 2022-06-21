@@ -75,5 +75,29 @@ public class MainActivityTest {
         onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click()); //Check the content on the list - no content in this case
         Espresso.pressBack(); //Back button
     }
+    @Test
+    public void testLabWork()
+    {
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Khulna"));
+        onView(withId(R.id.button_confirm)).perform(click());
+
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("Dhaka"));
+        onView(withId(R.id.button_confirm)).perform(click());
+
+        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.editText_name)).perform(ViewActions.typeText("B-baria"));
+        onView(withId(R.id.button_confirm)).perform(click());
+
+        onData(anything()).inAdapterView(withId(R.id.city_list)).atPosition(0).perform(click());
+
+        onView(withId(R.id.showActivity)).check(matches(isDisplayed()));
+
+        onView(withText("Khulna")).check(matches(isDisplayed()));
+
+        onView(withId(R.id.back)).perform(click());
+        onView(withId(R.id.mainActivity)).check(matches(isDisplayed()));
+    }
 
 }
