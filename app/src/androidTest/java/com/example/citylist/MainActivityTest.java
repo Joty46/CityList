@@ -97,7 +97,7 @@ public class MainActivityTest {
         onView(withText("Khulna")).check(matches(isDisplayed()));
 
         onView(withId(R.id.back)).perform(click());
-        onView(withId(R.id.mainActivity)).check(matches(isDisplayed()));
+        onView(withText("CityList")).check(matches(isDisplayed()));
     }
 
 }
